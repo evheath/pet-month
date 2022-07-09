@@ -1,5 +1,5 @@
 import { PetData } from '@/utils/PetData';
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from 'recharts';
 
 export function PetGraph({ data, slug }: { data: PetData[], slug: string }) {
   const slugInt = parseInt(slug);
@@ -19,6 +19,7 @@ export function PetGraph({ data, slug }: { data: PetData[], slug: string }) {
       >
         <XAxis dataKey="name" />
         <YAxis />
+        <Tooltip />
         <Bar dataKey="families">
           {
             data.map((entry, index) => (
