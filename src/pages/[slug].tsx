@@ -3,36 +3,13 @@ import Head from "next/head";
 import { PetGraph } from "@/components/PetGraph";
 import { GetServerSideProps } from 'next'
 import { PetData } from "@/utils/PetData";
+import { getPetData } from "@/utils/firestore";
 
 
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const data: PetData[] = [
-    {
-      name: '1 Pet',
-      families: 2400,
-    },
-    {
-      name: '2 Pets',
-      families: 1398,
-    },
-    {
-      name: '3 Pets',
-      families: 9800,
-    },
-    {
-      name: '4 Pets',
-      families: 3908,
-    },
-    {
-      name: '5 Pets',
-      families: 4800,
-    },
-    {
-      name: '6+ Pets',
-      families: 3800,
-    },
-  ];
+  const data: PetData[] = await getPetData();
+
   return {
     props: {
       slug: params!.slug as string,
