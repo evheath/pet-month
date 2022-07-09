@@ -31,7 +31,7 @@ export default function ButtonGrid() {
       </div>
       <div className="mt-10 flex justify-center">
 
-        <Link className="mx-auto" href={"/results"} >Skip and see results &#8594;</Link>
+        <Link onClick={() => setLoading(true)} className="mx-auto" href={"/results"} >Skip and see results &#8594;</Link>
       </div>
     </div>
   )
