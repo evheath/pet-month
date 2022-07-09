@@ -9,11 +9,9 @@ const db = getFirestore(app);
 
 import { PetData } from '@/utils/PetData';
 export async function updatePetData(numPets: number) {
-  console.log(`updating pet data for ${numPets} pets`);
   const index = numPets - 1;
   const petData = await getPetData();
   petData[index]!.families += 1;
-  console.log("New pet data:", petData);
   await db.doc("surveys/pets-per-family").set({ data: petData });
 }
 
