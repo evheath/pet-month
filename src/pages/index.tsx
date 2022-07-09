@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -9,7 +10,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="bg-black text-white">Pet Month</h1>
+        {/* <h1 className="bg-black text-white">Pet Month</h1> */}
+        <Header />
+
       </main>
     </>
   );
