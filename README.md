@@ -1,3 +1,3 @@
-# Create T3 App
+# [Pet Month](https://pet-month.vercel.app/)
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
+A simple nextjs webapp that tracks survey results of how many pets families have.
