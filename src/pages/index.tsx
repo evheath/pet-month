@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import ButtonGrid from "@/components/ButtonGrid";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
       <main>
         {/* <h1 className="bg-black text-white">Pet Month</h1> */}
         <Header />
-
+        <ButtonGrid />
       </main>
     </>
   );
