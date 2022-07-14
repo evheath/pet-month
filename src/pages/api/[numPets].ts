@@ -5,5 +5,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     query: { numPets }
   } = req
   await updatePetData(parseInt(numPets as string));
+  await res.revalidate('/results')
   res.status(200).json({});
 }

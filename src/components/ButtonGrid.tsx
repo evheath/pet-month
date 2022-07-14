@@ -8,7 +8,7 @@ export default function ButtonGrid() {
   async function submitPets(numPets: number) {
     setLoading(true);
     await fetch(`/api/${numPets}`);
-    Router.push(`/${numPets}`);
+    Router.push(`/results?pets=${numPets}`);
   }
 
   if (loading) {

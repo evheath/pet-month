@@ -1,24 +1,25 @@
-import type { InferGetServerSidePropsType, NextPage } from "next";
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import { PetGraph } from "@/components/PetGraph";
-import { GetServerSideProps } from 'next'
 import { PetData } from "@/utils/PetData";
 import { getPetData } from "@/utils/firestore";
+import { useRouter } from 'next/router'
 
 
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data: PetData[] = await getPetData();
-
   return {
     props: {
-      slug: params!.slug as string,
       data
     }
   }
 }
 
-const Home: NextPage = ({ slug, data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter()
+  const { pets } = router.query as { pets: string }
+
   return (
     <>
       <Head>
@@ -27,9 +28,8 @@ const Home: NextPage = ({ slug, data }: InferGetServerSidePropsType<typeof getSe
       </Head>
       <main className="h-screen flex flex-col items-center justify-center">
         {/* <h1 className="bg-black text-white">Check out the stats</h1> */}
-        {/* <p>Looking at the stats for people with {slug} pets</p> */}
 
-        <PetGraph data={data} slug={slug} />
+        <PetGraph data={data} pets={pets} />
 
       </main>
     </>
